@@ -8,8 +8,6 @@ void String::freeMemory() {
     length = 0;
 }
 String::String() : data(nullptr), length(0) {
-    data = new char[1];
-    data[0] = '\0';
 }
 String::String(const char* str) {
     if (str == nullptr) {
@@ -23,8 +21,7 @@ String::String(const char* str) {
     }
 }
 
-String::String(const String& other) {
-    length = other.length;
+String::String(const String& other) : length(other.length) {
     data = new char[length + 1];
     std::strcpy(data, other.data);
 }
@@ -68,15 +65,5 @@ bool String::operator==(const String& other) const {
     return std::strcmp(data, other.data) == 0;
 }
 
-std::ostream& operator<<(std::ostream& os, const String& str) {
-    os << (str.data ? str.data : "");
-    return os;
-}
 
-std::istream& operator>>(std::istream& is, String& str) {
-    char buffer[1024];
-    is >> buffer;
-    String temp(buffer);
-    str = temp;
-    return is;
-}
+

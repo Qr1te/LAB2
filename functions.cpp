@@ -3,7 +3,8 @@
 void menu(){
     char reset = 'y';
     do {
-        String s1,s2;
+        String s1;
+        String s2;
         int choice;
         std::cout << "Enter a string: ";
         std::cin >> s1;

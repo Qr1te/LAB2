@@ -11,14 +11,23 @@ private:
     void freeMemory();
 public:
     String();
-    String(const char* str);
+    explicit String(const char* str);
     String(const String& other);
     ~String();
     String& operator=(const String& other);
     String& operator+=(const String& other);
     bool operator==(const String& other) const;
-    friend std::ostream& operator<<(std::ostream& os, const String& str);
-    friend std::istream& operator>>(std::istream& is, String& str);
+    friend std::ostream& operator<<(std::ostream& os, const String& str) {
+        os << (str.data ? str.data : "");
+        return os;
+    }
+    friend std::istream& operator>>(std::istream& is, String& str) {
+        char buffer[1024];
+        is >> buffer;
+        String temp(buffer);
+        str = temp;
+        return is;
+    }
 };
 
 
