@@ -42,7 +42,7 @@ String& String::operator=(const String& other) {
 
 String& String::operator+=(const String& other) {
     if (other.length > 0) {
-        char* newData = new char[length + other.length + 1];
+        auto newData = new char[length + other.length + 1];
 
         if (data != nullptr) {
             std::strcpy(newData, data);
