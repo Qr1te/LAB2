@@ -30,8 +30,4 @@ public:
     }
 };
 
-
-
-
-
-#endif //LAB2_STRING_H
+#endif

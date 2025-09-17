@@ -4,4 +4,4 @@
 
 void menu();
 
-#endif //LAB2_FUNCTIONS_H
+#endif // LAB2_FUNCTIONS_H
