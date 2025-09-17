@@ -18,7 +18,7 @@ public:
     String& operator+=(const String& other);
     bool operator==(const String& other) const;
     friend std::ostream& operator<<(std::ostream& os, const String& str) {
-        os << (str.data ? str.data : "");
+        os << str.data;
         return os;
     }
     friend std::istream& operator>>(std::istream& is, String& str) {
