@@ -22,12 +22,14 @@ public:
         return os;
     }
     friend std::istream& operator>>(std::istream& is, String& str) {
-        char buffer[1024];
+        std::string buffer;
         is >> buffer;
-        String temp(buffer);
-        str = temp;
+        str.freeMemory();
+        str.length = buffer.length();
+        str.data = new char[str.length + 1];
+        std::strcpy(str.data, buffer.c_str());
         return is;
-    }
+     }
 };
 
 #endif
